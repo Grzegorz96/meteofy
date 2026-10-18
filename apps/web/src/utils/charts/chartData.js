@@ -1,4 +1,4 @@
-import { POLLUTION_NAMES } from '../constants/pollutionNames';
+import { POLLUTION_NAMES } from '@/utils/constants/pollutionNames';
 
 /**
  * Generates bar chart data for air pollution.

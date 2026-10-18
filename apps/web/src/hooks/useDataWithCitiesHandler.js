@@ -4,9 +4,9 @@ import {
   fetchVisualCrossingAirPollution,
   fetchGeoApifyReverseGeocoding,
   fetchOpenMeteoSeasonalWeather,
-} from '../services/api';
-import { DEFAULT_CITY_COORDS } from '../utils/constants/defaultCityCoords';
-import { DATA_TYPE } from '../utils/constants';
+} from '@/services/api';
+import { DEFAULT_CITY_COORDS } from '@/utils/constants/defaultCityCoords';
+import { DATA_TYPE } from '@/utils/constants';
 
 /** Hard limit when the browser never invokes geolocation callbacks (e.g. some WebViews). */
 const GEOLOCATION_TIMEOUT_MS = 8000;

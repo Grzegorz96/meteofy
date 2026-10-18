@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { API_DATA } from '../../utils/constants/api/openMeteoApiData';
-import { toWeatherIcon, toWeatherDescription } from '../../utils/formatters';
+import { API_DATA } from '@/utils/constants/api/openMeteoApiData';
+import { toWeatherIcon, toWeatherDescription } from '@/utils/formatters';
 
 /**
  * Maps one Open-Meteo `current` block onto the city shown on the maps.

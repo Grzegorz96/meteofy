@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_DATA } from '../../utils/constants/api/geoApifyApiData';
+import { API_DATA } from '@/utils/constants/api/geoApifyApiData';
 
 /**
  * Creates options for the GeoApify reverse geocoding request.

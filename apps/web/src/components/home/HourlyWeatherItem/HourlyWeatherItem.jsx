@@ -2,7 +2,7 @@ import {
   HourlyLabel,
   Label,
   WeatherIcon,
-} from '../../ui/Accordion/Accordion.styles';
+} from '@/components/ui/Accordion/Accordion.styles';
 
 /**
  * @component

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PageName from '../../../assets/images/page-name.svg?react';
+import PageName from '@/assets/images/page-name.svg?react';
 
 /**
  * @component

@@ -6,14 +6,14 @@ import {
   DailyDetailsGrid,
   DailyDetailsGridItem,
   Label,
-} from '../../ui/Accordion/Accordion.styles';
+} from '@/components/ui/Accordion/Accordion.styles';
 import {
   AccordionItem,
   AccordionItemPanel,
   AccordionItemHeading,
 } from 'react-accessible-accordion';
-import ScrollContainer from '../../ui/ScrollContainer/ScrollContainer';
-import HourlyWeatherItem from '../HourlyWeatherItem/HourlyWeatherItem';
+import ScrollContainer from '@/components/ui/ScrollContainer/ScrollContainer';
+import HourlyWeatherItem from '@/components/home/HourlyWeatherItem/HourlyWeatherItem';
 import { format } from 'date-fns';
 
 /**

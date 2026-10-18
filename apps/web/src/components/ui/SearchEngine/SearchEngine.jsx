@@ -1,5 +1,5 @@
 import { AsyncPaginate } from 'react-select-async-paginate';
-import { fetchGeoDbCityOptions } from '../../../services/api';
+import { fetchGeoDbCityOptions } from '@/services/api';
 import { useTheme } from 'styled-components';
 
 /**

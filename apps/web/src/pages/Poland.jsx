@@ -1,8 +1,8 @@
-import PolandMap from '../components/PolandMap/PolandMap';
-import ErrorModal from '../components/ui/modals/ErrorModal/ErrorModal';
-import Loader from '../components/ui/Loader/Loader';
-import { polishCitiesData } from '../utils/citiesConfig/polishCitiesData';
-import { useDataWithMapsHandler } from '../hooks';
+import PolandMap from '@/components/PolandMap/PolandMap';
+import ErrorModal from '@/components/ui/modals/ErrorModal/ErrorModal';
+import Loader from '@/components/ui/Loader/Loader';
+import { polishCitiesData } from '@/utils/citiesConfig/polishCitiesData';
+import { useDataWithMapsHandler } from '@/hooks';
 
 /**
  * @component

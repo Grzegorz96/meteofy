@@ -1,8 +1,8 @@
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { AirPollutionBarChartWrapper, Datetime } from './BarChart.styles';
-import { getAirPollutionBarChartData } from '../../../utils/charts/chartData';
-import { getAirPollutionBarChartOptions } from '../../../utils/charts/chartOptions';
+import { getAirPollutionBarChartData } from '@/utils/charts/chartData';
+import { getAirPollutionBarChartOptions } from '@/utils/charts/chartOptions';
 import { useTheme } from 'styled-components';
 
 /**

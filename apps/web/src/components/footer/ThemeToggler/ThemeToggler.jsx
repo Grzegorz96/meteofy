@@ -4,7 +4,7 @@ import {
   SwitcherElement,
 } from './ThemeToggler.styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleThemeMode } from '../../../state';
+import { toggleThemeMode } from '@/state';
 
 /**
  * @component

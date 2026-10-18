@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { CurrentAirPollutionWrapper } from './CurrentAirPollution.styles';
-import AirPollutionBarChart from '../BarChart/BarChart';
-import AirQualityIndexLabel from '../AirQualityIndexLabel/AirQualityIndexLabel';
-import AirQualityIndexMainDescription from '../AirQualityIndexMainDescription/AirQualityIndexMainDescription';
+import AirPollutionBarChart from '@/components/airPollution/BarChart/BarChart';
+import AirQualityIndexLabel from '@/components/airPollution/AirQualityIndexLabel/AirQualityIndexLabel';
+import AirQualityIndexMainDescription from '@/components/airPollution/AirQualityIndexMainDescription/AirQualityIndexMainDescription';
 
 /**
  * @component

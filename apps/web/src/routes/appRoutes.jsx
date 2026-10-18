@@ -6,8 +6,8 @@ import {
   NotFoundPage,
   AirPollutionPage,
   LongTermWeatherPage,
-} from '../pages';
-import { ROUTES, PAGE_TITLES, toLayoutPath } from '../utils/constants';
+} from '@/pages';
+import { ROUTES, PAGE_TITLES, toLayoutPath } from '@/utils/constants';
 
 /**
  * Child routes rendered inside the layout at `/`.

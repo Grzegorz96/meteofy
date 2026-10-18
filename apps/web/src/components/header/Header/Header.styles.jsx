@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Logo from '../../../assets/images/logo-meteofy.svg?react';
+import Logo from '@/assets/images/logo-meteofy.svg?react';
 
 /**
  * @component

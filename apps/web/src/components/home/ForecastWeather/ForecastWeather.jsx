@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import DailyWeatherItem from '../DailyWeatherItem/DailyWeatherItem';
-import CustomAccordion from '../../ui/Accordion/Accordion';
+import DailyWeatherItem from '@/components/home/DailyWeatherItem/DailyWeatherItem';
+import CustomAccordion from '@/components/ui/Accordion/Accordion';
 
 /**
  * @component

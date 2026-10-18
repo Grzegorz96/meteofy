@@ -1,13 +1,13 @@
 import { Header, StyledLogo, StyledLink } from './Header.styles';
-import SideBarMenu from '../SideBarMenu/SideBarMenu';
-import SearchEngine from '../../ui/SearchEngine/SearchEngine';
-import Navbar from '../Navbar/Navbar';
+import SideBarMenu from '@/components/header/SideBarMenu/SideBarMenu';
+import SearchEngine from '@/components/ui/SearchEngine/SearchEngine';
+import Navbar from '@/components/header/Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCityData } from '../../../state';
+import { setCityData } from '@/state';
 import { useNavigate } from 'react-router-dom';
-import { globalInputStyles } from '../../ui/SearchEngine/SearchEngine.styles';
+import { globalInputStyles } from '@/components/ui/SearchEngine/SearchEngine.styles';
 import { useMediaQuery } from 'react-responsive';
-import { ROUTES } from '../../../utils/constants';
+import { ROUTES } from '@/utils/constants';
 
 /**
  * @component

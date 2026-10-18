@@ -2,7 +2,7 @@ import { Text, Decal, useTexture, Box, useCursor } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 import { useRef, useLayoutEffect, useState } from 'react';
 import { useTheme } from 'styled-components';
-import { openWeatherModal } from '../ui/modals/WeatherModal/WeatherModal';
+import { openWeatherModal } from '@/components/ui/modals/WeatherModal/WeatherModal';
 
 /**
  * @component

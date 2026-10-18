@@ -3,13 +3,13 @@ import { useThree } from '@react-three/fiber';
 import { useTexture, Sphere } from '@react-three/drei';
 import { useTheme } from 'styled-components';
 import WeatherBoard from './WeatherBoard';
-import { closeWeatherModal } from '../ui/modals/WeatherModal/WeatherModal';
-import EarthDayMap from '../../assets/textures/8k-earth-day-map.jpg';
-import EarthCloudsMap from '../../assets/textures/8k-earth-clouds.jpg';
-import NormalMap from '../../assets/textures/8k-earth-normal-map.jpg';
-import SpecularMap from '../../assets/textures/8k-earth-specular-map.jpg';
-import { worldCapitalsData } from '../../utils/citiesConfig/worldCapitalsData';
-import { convertLatLonToCartesian } from '../../utils/formatters';
+import { closeWeatherModal } from '@/components/ui/modals/WeatherModal/WeatherModal';
+import EarthDayMap from '@/assets/textures/8k-earth-day-map.jpg';
+import EarthCloudsMap from '@/assets/textures/8k-earth-clouds.jpg';
+import NormalMap from '@/assets/textures/8k-earth-normal-map.jpg';
+import SpecularMap from '@/assets/textures/8k-earth-specular-map.jpg';
+import { worldCapitalsData } from '@/utils/citiesConfig/worldCapitalsData';
+import { convertLatLonToCartesian } from '@/utils/formatters';
 
 /** Fallback if a board Text never syncs (e.g. font failure). */
 const LOADING_TIMEOUT_MS = 10000;

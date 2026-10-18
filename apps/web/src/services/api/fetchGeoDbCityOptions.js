@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { API_DATA } from '../../utils/constants/api/geoDbApiData';
-import { requestCityDelay } from '../../utils/helpers';
+import { API_DATA } from '@/utils/constants/api/geoDbApiData';
+import { requestCityDelay } from '@/utils/helpers';
 
 /**
  * Creates options for the GeoDB Cities search request.

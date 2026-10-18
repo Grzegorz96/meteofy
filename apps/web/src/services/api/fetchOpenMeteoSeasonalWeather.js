@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_DATA } from '../../utils/constants/api/openMeteoApiData';
+import { API_DATA } from '@/utils/constants/api/openMeteoApiData';
 
 /**
  * Creates options for the Open-Meteo seasonal request.

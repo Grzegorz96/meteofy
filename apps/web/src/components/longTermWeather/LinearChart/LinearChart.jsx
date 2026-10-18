@@ -1,6 +1,6 @@
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns';
-import { currentTimePosition } from '../../../utils/charts/chartPlugins';
+import { currentTimePosition } from '@/utils/charts/chartPlugins';
 
 /**
  * @component

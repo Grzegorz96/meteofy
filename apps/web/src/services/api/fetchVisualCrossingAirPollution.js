@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_DATA } from '../../utils/constants/api/visualCrossingWeatherApiData';
+import { API_DATA } from '@/utils/constants/api/visualCrossingWeatherApiData';
 
 /**
  * Creates options for the Visual Crossing air pollution request.

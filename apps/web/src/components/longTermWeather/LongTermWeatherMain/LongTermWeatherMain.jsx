@@ -9,14 +9,14 @@ import {
   dateRangePickerMenu,
 } from './longTermWeatherMain.helpers';
 import 'rsuite/dist/rsuite-no-reset.min.css';
-import '../../../assets/CSS/rsuiteStyles/dateRangePickerStyles.css';
-import LongTermWeatherLinearChart from '../LinearChart/LinearChart';
+import '@/assets/CSS/rsuiteStyles/dateRangePickerStyles.css';
+import LongTermWeatherLinearChart from '@/components/longTermWeather/LinearChart/LinearChart';
 import { useState, useMemo, memo } from 'react';
-import { getLongTermWeatherFilteredLinearChartData } from '../../../utils/charts/chartData';
-import { getLongTermWeatherLinearChartOptions } from '../../../utils/charts/chartOptions';
-import { SELECT_OPTIONS } from '../../../utils/constants';
-import { API_DATA } from '../../../utils/constants/api/openMeteoApiData';
-import { getDefaultDateRange, getRanges } from '../../../utils/helpers';
+import { getLongTermWeatherFilteredLinearChartData } from '@/utils/charts/chartData';
+import { getLongTermWeatherLinearChartOptions } from '@/utils/charts/chartOptions';
+import { SELECT_OPTIONS } from '@/utils/constants';
+import { API_DATA } from '@/utils/constants/api/openMeteoApiData';
+import { getDefaultDateRange, getRanges } from '@/utils/helpers';
 import { startOfDay, addDays, subDays } from 'date-fns';
 import { useMediaQuery } from 'react-responsive';
 import { useTheme } from 'styled-components';

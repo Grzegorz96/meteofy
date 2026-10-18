@@ -1,6 +1,6 @@
 import { NotFoundWrapper, LinkStyled, Title } from './NotFound.styles';
 import { useEffect, useRef } from 'react';
-import { ROUTES } from '../../utils/constants';
+import { ROUTES } from '@/utils/constants';
 
 /**
  * @component

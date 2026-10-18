@@ -9,7 +9,7 @@ import {
   ModalTitle,
 } from './ErrorModal.styles';
 import { FaRegCircleXmark } from 'react-icons/fa6';
-import { setRootLocked } from '../../../../utils/helpers';
+import { setRootLocked } from '@/utils/helpers';
 
 /**
  * @component

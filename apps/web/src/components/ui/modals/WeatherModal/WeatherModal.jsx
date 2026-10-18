@@ -5,10 +5,10 @@ import {
   WeatherInfoValue,
   Title,
 } from './WeatherModal.styles';
-import '../../../../assets/CSS/sweetAlert2Styles/weatherCityModal.css';
+import '@/assets/CSS/sweetAlert2Styles/weatherCityModal.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { setRootInert } from '../../../../utils/helpers';
+import { setRootInert } from '@/utils/helpers';
 
 /**
  * Opens a modal displaying weather information for a city.

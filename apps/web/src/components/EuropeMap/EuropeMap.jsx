@@ -5,12 +5,12 @@ import { WeatherIcon, Temp } from './EuropeMap.styles';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import { renderToString } from 'react-dom/server';
 import 'leaflet/dist/leaflet.css';
-import '../../assets/CSS/reactLeafletStyles/customMarkerIcon.css';
-import '../../assets/CSS/reactLeafletStyles/customControlZoom.css';
+import '@/assets/CSS/reactLeafletStyles/customMarkerIcon.css';
+import '@/assets/CSS/reactLeafletStyles/customControlZoom.css';
 import {
   openWeatherModal,
   closeWeatherModal,
-} from '../ui/modals/WeatherModal/WeatherModal';
+} from '@/components/ui/modals/WeatherModal/WeatherModal';
 import { useTheme } from 'styled-components';
 
 /**

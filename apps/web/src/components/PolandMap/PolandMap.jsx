@@ -10,8 +10,8 @@ import {
 import {
   openWeatherModal,
   closeWeatherModal,
-} from '../ui/modals/WeatherModal/WeatherModal';
-import { polishCitiesData } from '../../utils/citiesConfig/polishCitiesData';
+} from '@/components/ui/modals/WeatherModal/WeatherModal';
+import { polishCitiesData } from '@/utils/citiesConfig/polishCitiesData';
 import { useTheme } from 'styled-components';
 
 /**

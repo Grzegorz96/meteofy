@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { resetCityData } from '../state';
-import { ROUTES } from '../utils/constants';
+import { resetCityData } from '@/state';
+import { ROUTES } from '@/utils/constants';
 
 /**
  * Clears selected city data from the store when leaving the home route.

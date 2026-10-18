@@ -1,11 +1,11 @@
 import { useState, useMemo } from 'react';
-import ErrorModal from '../components/ui/modals/ErrorModal/ErrorModal';
-import Loader from '../components/ui/Loader/Loader';
-import SearchEngine from '../components/ui/SearchEngine/SearchEngine';
-import { localInputStyles } from '../components/ui/SearchEngine/SearchEngine.styles';
-import LongTermWeatherMain from '../components/longTermWeather/LongTermWeatherMain/LongTermWeatherMain';
-import { DATA_TYPE } from '../utils/constants';
-import { useDataWithCitiesHandler } from '../hooks';
+import ErrorModal from '@/components/ui/modals/ErrorModal/ErrorModal';
+import Loader from '@/components/ui/Loader/Loader';
+import SearchEngine from '@/components/ui/SearchEngine/SearchEngine';
+import { localInputStyles } from '@/components/ui/SearchEngine/SearchEngine.styles';
+import LongTermWeatherMain from '@/components/longTermWeather/LongTermWeatherMain/LongTermWeatherMain';
+import { DATA_TYPE } from '@/utils/constants';
+import { useDataWithCitiesHandler } from '@/hooks';
 
 /**
  * @component
