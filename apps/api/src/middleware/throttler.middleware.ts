@@ -3,8 +3,7 @@ import { THROTTLER } from '@/utils/constants';
 
 /**
  * API throttler - slows down requests after a certain number.
- * After 50 requests in 15 minutes, delay each request by 500ms.
- * Each additional request adds 500ms delay (up to maxDelayMs).
+ * After 50 requests in 15 minutes, each extra request adds 100ms delay (up to 2s).
  */
 export const apiThrottler = slowDown({
   windowMs: THROTTLER.WINDOW_MS,

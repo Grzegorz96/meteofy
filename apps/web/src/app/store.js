@@ -3,7 +3,7 @@ import {
   cityDataReducer,
   themeDataReducer,
   themeStorageMiddleware,
-} from '../state';
+} from '@/state';
 
 /**
  * The Redux store for managing the application state.

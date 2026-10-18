@@ -13,8 +13,8 @@ const getInitialThemeMode = () => {
 
     if (storedIsDarkMode === 'true') return true;
     if (storedIsDarkMode === 'false') return false;
-  } catch (e) {
-    console.warn('Error getting initial theme mode:', e);
+  } catch (error) {
+    console.warn('Error getting initial theme mode:', error);
   }
   return window.matchMedia('(prefers-color-scheme: dark)').matches;
 };

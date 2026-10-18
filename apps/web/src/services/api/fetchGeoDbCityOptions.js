@@ -72,7 +72,7 @@ export const fetchGeoDbCityOptions = async (
           page: page + 1,
         },
       };
-    } catch (error) {
+    } catch {
       return {
         options: [],
         hasMore: false,
