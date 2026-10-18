@@ -14,6 +14,11 @@
     "build": "npm run build -w @meteofy/shared && npm run build -w api && npm run build -w web",
     "lint": "npm run lint --workspaces --if-present",
     "lint:web": "npm run lint -w web",
+    "lint:api": "npm run lint -w api",
+    "lint:shared": "npm run lint -w @meteofy/shared",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "typecheck:api": "npm run typecheck -w api",
+    "typecheck:shared": "npm run typecheck -w @meteofy/shared",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

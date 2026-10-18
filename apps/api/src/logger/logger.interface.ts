@@ -8,11 +8,7 @@ export interface LoggerInterface {
    * @param error - Error object (optional).
    * @param meta - Additional metadata (optional).
    */
-  error(
-    message: string,
-    error?: Error | unknown,
-    meta?: Record<string, unknown>
-  ): void;
+  error(message: string, error?: unknown, meta?: Record<string, unknown>): void;
 
   /**
    * Logs warning message.

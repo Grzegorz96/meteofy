@@ -2,7 +2,7 @@ import winston from 'winston';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { LoggerInterface } from './logger.interface';
+import type { LoggerInterface } from './logger.interface';
 import { LOGGER } from '@/utils/constants';
 
 /**
@@ -59,7 +59,7 @@ export class Logger implements LoggerInterface {
             winston.format.printf(({ timestamp, level, message, ...meta }) => {
               const metaString =
                 Object.keys(meta).length > 0 ? ` ${JSON.stringify(meta)}` : '';
-              return `[${timestamp}] ${level}: ${message}${metaString}`;
+              return `[${String(timestamp)}] ${String(level)}: ${String(message)}${metaString}`;
             })
           ),
         })
@@ -106,7 +106,7 @@ export class Logger implements LoggerInterface {
 
   public error(
     message: string,
-    error?: Error | unknown,
+    error?: unknown,
     meta?: Record<string, unknown>
   ): void {
     const logData: Record<string, unknown> = { ...meta };

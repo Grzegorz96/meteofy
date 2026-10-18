@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import { HTTP_STATUS, HTTP_MESSAGES } from '@/utils/constants';
 import { createErrorResponse } from '@/utils/response-helpers';
 

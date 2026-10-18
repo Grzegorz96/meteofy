@@ -1,5 +1,10 @@
-import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
-import { LoggerInterface } from '@/logger';
+import type {
+  Request,
+  Response,
+  NextFunction,
+  ErrorRequestHandler,
+} from 'express';
+import { type LoggerInterface } from '@/logger';
 import { HTTP_STATUS, HTTP_MESSAGES } from '@/utils/constants';
 import { createErrorResponse } from '@/utils/response-helpers';
 

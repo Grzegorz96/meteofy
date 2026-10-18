@@ -27,4 +27,4 @@ Routing is React Router 6. Styles are styled-components with the existing light 
 
 ## Scripts (from repo root)
 
-`npm run dev` (shared + api + web), `npm run dev:web`, `npm run dev:api`, `npm run build`, `npm run lint` (zero warnings), `npm run format`. Workspace-scoped: `npm run <script> -w web|api|@meteofy/shared`.
+`npm run dev` (shared + api + web), `npm run dev:web`, `npm run dev:api`, `npm run build`, `npm run lint` (zero warnings; web + api + shared), `npm run lint:web|api|shared`, `npm run typecheck` (api + shared), `npm run format`. Workspace-scoped: `npm run <script> -w web|api|@meteofy/shared`.

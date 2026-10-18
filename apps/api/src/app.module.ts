@@ -1,4 +1,5 @@
-import express, { Express, Request, Response } from 'express';
+import type { Express, Request, Response } from 'express';
+import express from 'express';
 import {
   createErrorHandlerMiddleware,
   notFoundMiddleware,
@@ -7,7 +8,8 @@ import {
   securityMiddleware,
   corsMiddleware,
 } from '@/middleware';
-import { Logger, LoggerInterface } from '@/logger';
+import type { LoggerInterface } from '@/logger';
+import { Logger } from '@/logger';
 import { HTTP_STATUS, HTTP_MESSAGES, ROUTES, SERVER } from '@/utils/constants';
 
 /**

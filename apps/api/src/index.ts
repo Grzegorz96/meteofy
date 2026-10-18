@@ -7,7 +7,7 @@ dotenv.config();
 /**
  * Bootstrap function - creates application, initializes middleware, routes and starts server.
  */
-async function bootstrap(): Promise<void> {
+function bootstrap(): void {
   try {
     const appModule = new AppModule();
 
@@ -21,4 +21,4 @@ async function bootstrap(): Promise<void> {
   }
 }
 
-void bootstrap();
+bootstrap();
