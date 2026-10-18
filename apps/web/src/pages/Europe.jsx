@@ -18,9 +18,7 @@ export default function EuropePage() {
     <>
       {data.error && <ErrorModal data={data} setData={setData} />}
       {data.loading && <Loader />}
-      {data.fetchedData && (
-        <EuropeMap fetchedCitiesData={data.fetchedData} />
-      )}
+      {data.fetchedData && <EuropeMap fetchedCitiesData={data.fetchedData} />}
     </>
   );
 }

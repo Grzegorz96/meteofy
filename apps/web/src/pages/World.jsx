@@ -18,9 +18,7 @@ export default function WorldPage() {
     <>
       {data.error && <ErrorModal data={data} setData={setData} />}
       {data.loading && <Loader />}
-      {data.fetchedData && (
-        <WorldGlobe fetchedCitiesData={data.fetchedData} />
-      )}
+      {data.fetchedData && <WorldGlobe fetchedCitiesData={data.fetchedData} />}
     </>
   );
 }
