@@ -4,8 +4,8 @@ Release notes, screenshots, and version-specific docs live here. Each version is
 
 ## Releases
 
-| Version | Status | Notes |
-| --- | --- | --- |
+| Version                      | Status  | Notes                                   |
+| ---------------------------- | ------- | --------------------------------------- |
 | [v1.0.0](./releases/v1.0.0/) | Current | Original UI before the planned redesign |
 
 ## Layout
