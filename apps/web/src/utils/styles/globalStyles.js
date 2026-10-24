@@ -27,7 +27,7 @@ const styles = css`
     font-family: ${({ theme }) => theme.fontFamily};
     -webkit-tap-highlight-color: transparent;
     scrollbar-width: thin;
-    scrollbar-color: rgba(87, 87, 87, 0.55) transparent;
+    scrollbar-color: ${({ theme }) => theme.scrollbar} transparent;
 
     @media (max-width: 768px) {
       scrollbar-width: none;

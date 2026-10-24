@@ -8,6 +8,7 @@
  * @property {string} backgroundFocus - The color value for the focused background.
  * @property {string} overlay - The color value for the overlay.
  * @property {string} textSecondary - The color value for the secondary text.
+ * @property {string} scrollbar - The color value for the scrollbar thumb.
  */
 
 /**
@@ -22,6 +23,7 @@ const theme = {
   backgroundFocus: 'rgba(0, 0, 0, 0.3)',
   overlay: 'rgba(0, 0, 0, 0.4) !important',
   textSecondary: '#818181',
+  scrollbar: 'rgba(87, 87, 87, 0.55)',
 };
 
 /**
