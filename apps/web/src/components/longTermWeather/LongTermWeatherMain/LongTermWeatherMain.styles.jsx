@@ -97,9 +97,15 @@ export const DateRangePickerStyled = styled(DateRangePicker)`
       font-size: 16px;
       border-radius: 0 6px 6px 0;
 
-      .rs-icon {
-        color: ${({ theme }) => theme.textPrimary};
-        transition: color 0.25s ease-in-out;
+      /* Clear (X) — hover/focus on the clean button */
+      .rs-picker-clean svg path {
+        stroke: ${({ theme }) => theme.textSecondary};
+        transition: stroke 0.25s ease-in-out;
+      }
+
+      .rs-picker-clean:hover svg path,
+      .rs-picker-clean:focus svg path {
+        stroke: ${({ theme }) => theme.textPrimary};
       }
     }
   }

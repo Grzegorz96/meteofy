@@ -52,14 +52,12 @@ const getCurrentPosition = () =>
   });
 
 /**
- * Retrieves the coordinates (latitude and longitude) for a given city or the user's current location.
- * If a city is provided, it returns the coordinates of that city. Otherwise, it attempts to retrieve the user's current location.
- * If the user's location cannot be retrieved, it returns default city coordinates.
+ * Resolves which coordinates to use: selected city, geolocation, or the default city.
  *
- * @param {Object} city - The city object containing latitude and longitude values.
- * @returns {Promise<{ latitude: number, longitude: number }>} The coordinates object containing latitude and longitude values.
+ * @param {Object|null} city - Selected city with latitude/longitude, or null/undefined.
+ * @returns {Promise<{ latitude: number, longitude: number }>}
  */
-const getCoordinates = async (city) => {
+const resolveCoordinates = async (city) => {
   if (city) {
     return {
       latitude: city.value.latitude,
@@ -119,7 +117,7 @@ export const useDataWithCitiesHandler = (city, dataType) => {
       setData((prev) => ({ ...prev, loading: true }));
 
       try {
-        const { latitude, longitude } = await getCoordinates(city);
+        const { latitude, longitude } = await resolveCoordinates(city);
 
         // City changed (or unmount) while waiting for geolocation — skip API calls.
         if (isCancelled) return;

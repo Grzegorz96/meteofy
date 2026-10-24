@@ -1,3 +1,5 @@
+import { selectIndicatorStyles } from '@/utils/styles/reactSelectStyles';
+
 /**
  * Generates custom styles for a Select component based on the provided theme.
  *
@@ -79,25 +81,25 @@ export const customSelectStyles = (theme) => ({
     },
   }),
   /**
-   * Styles for the dropdown indicator in the Select.
+   * Same indicator look/behavior as SearchEngine (X + chevron).
    *
    * @param {Object} provided - The default styles provided by the library.
    * @returns {Object} Custom styles for the dropdown indicator.
    */
   dropdownIndicator: (provided) => ({
-    ...provided,
+    ...selectIndicatorStyles(provided, theme),
     '@media (max-width: 768px)': {
       paddingBlock: 0,
     },
   }),
   /**
-   * Styles for the clear indicator in the Select.
+   * Same indicator look/behavior as SearchEngine (X + chevron).
    *
    * @param {Object} provided - The default styles provided by the library.
    * @returns {Object} Custom styles for the clear indicator.
    */
   clearIndicator: (provided) => ({
-    ...provided,
+    ...selectIndicatorStyles(provided, theme),
     '@media (max-width: 768px)': {
       paddingBlock: 0,
     },

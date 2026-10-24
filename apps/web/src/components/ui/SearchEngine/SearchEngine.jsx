@@ -36,6 +36,7 @@ export default function SearchEngine({
       loadOptions={fetchGeoDbCityOptions}
       additional={ADDITIONAL}
       noOptionsMessage={noOptionsMessage}
+      isClearable
     />
   );
 }
