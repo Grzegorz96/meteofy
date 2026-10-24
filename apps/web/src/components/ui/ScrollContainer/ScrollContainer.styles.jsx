@@ -9,18 +9,14 @@ import styled from 'styled-components';
 export const ScrollableContainer = styled.div.attrs({
   tabIndex: 0,
 })`
-  overflow-y: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   gap: 3px;
   width: 100%;
   border-radius: 10px;
   transition: background-color 0.25s ease-in-out;
   scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 
   &:focus-visible {
     outline: none;
