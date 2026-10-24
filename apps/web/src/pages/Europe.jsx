@@ -1,6 +1,6 @@
-import EuropeMap from '@/components/EuropeMap/EuropeMap';
-import ErrorModal from '@/components/ui/modals/ErrorModal/ErrorModal';
-import Loader from '@/components/ui/Loader/Loader';
+import EuropeMap from '@/components/EuropeMap';
+import ErrorModal from '@/components/ui/modals/ErrorModal';
+import Loader from '@/components/ui/Loader';
 import { europeCapitalsData } from '@/utils/citiesConfig/europeCapitalsData';
 import { useDataWithMapsHandler } from '@/hooks';
 

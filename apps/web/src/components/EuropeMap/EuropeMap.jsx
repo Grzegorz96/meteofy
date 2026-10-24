@@ -10,7 +10,7 @@ import '@/assets/CSS/reactLeafletStyles/customControlZoom.css';
 import {
   openWeatherModal,
   closeWeatherModal,
-} from '@/components/ui/modals/WeatherModal/WeatherModal';
+} from '@/components/ui/modals/WeatherModal';
 import { useTheme } from 'styled-components';
 
 /**

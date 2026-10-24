@@ -15,8 +15,8 @@ import {
   DailyDetailsFlex,
 } from '@/components/ui/Accordion/Accordion.styles';
 import { getAqiUSData } from '@/utils/helpers';
-import ScrollContainer from '@/components/ui/ScrollContainer/ScrollContainer';
-import AirPollutionLinearChart from '@/components/airPollution/LinearChart/LinearChart';
+import ScrollContainer from '@/components/ui/ScrollContainer';
+import AirPollutionLinearChart from '@/components/airPollution/LinearChart';
 import { POLLUTION_NAMES } from '@/utils/constants';
 import { getAirPollutionFilteredLinearChartData } from '@/utils/charts/chartData';
 import { format } from 'date-fns';

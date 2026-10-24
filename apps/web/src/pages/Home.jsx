@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import CurrentWeather from '@/components/home/CurrentWeather/CurrentWeather';
-import ForecastWeather from '@/components/home/ForecastWeather/ForecastWeather';
-import Loader from '@/components/ui/Loader/Loader';
-import ErrorModal from '@/components/ui/modals/ErrorModal/ErrorModal';
+import CurrentWeather from '@/components/home/CurrentWeather';
+import ForecastWeather from '@/components/home/ForecastWeather';
+import Loader from '@/components/ui/Loader';
+import ErrorModal from '@/components/ui/modals/ErrorModal';
 import { DATA_TYPE } from '@/utils/constants';
 import { useDataWithCitiesHandler } from '@/hooks';
 

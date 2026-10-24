@@ -3,7 +3,7 @@ import { CanvasContainer } from './WorldGlobe.styles';
 import { Canvas } from '@react-three/fiber';
 import Earth from '@/components/world/Earth';
 import { Stars, OrbitControls } from '@react-three/drei';
-import Loader from '@/components/ui/Loader/Loader';
+import Loader from '@/components/ui/Loader';
 
 /**
  * @component

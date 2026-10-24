@@ -1,6 +1,6 @@
 import Select from 'react-select';
 import { useAsyncPaginate, useComponents } from 'react-select-async-paginate';
-import Loader from './SearchEngineLoader/Loader';
+import Loader from './SearchEngineLoader';
 
 const defaultLoadingMessage = () => <Loader />;
 const defaultNoOptionsMessage = () => 'No options';

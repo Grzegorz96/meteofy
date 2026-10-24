@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Loader from '@/components/ui/Loader/Loader';
-import ErrorModal from '@/components/ui/modals/ErrorModal/ErrorModal';
-import SearchEngine from '@/components/ui/SearchEngine/SearchEngine';
-import CurrentAirPollution from '@/components/airPollution/CurrentAirPollution/CurrentAirPollution';
-import ForecastAirPollution from '@/components/airPollution/ForecastAirPollution/ForecastAirPollution';
-import { localInputStyles } from '@/components/ui/SearchEngine/SearchEngine.styles';
+import Loader from '@/components/ui/Loader';
+import ErrorModal from '@/components/ui/modals/ErrorModal';
+import SearchEngine from '@/components/ui/SearchEngine';
+import CurrentAirPollution from '@/components/airPollution/CurrentAirPollution';
+import ForecastAirPollution from '@/components/airPollution/ForecastAirPollution';
+import { localInputStyles } from '@/components/ui/SearchEngine';
 import { DATA_TYPE } from '@/utils/constants';
 import { useDataWithCitiesHandler } from '@/hooks';
 

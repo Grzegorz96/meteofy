@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { StyledBurgerMenu } from './SideBarMenu.styles';
-import Navbar from '@/components/header/Navbar/Navbar';
+import Navbar from '@/components/header/Navbar';
 import { FocusTrap } from 'focus-trap-react';
 
 export default function SideBarMenu() {

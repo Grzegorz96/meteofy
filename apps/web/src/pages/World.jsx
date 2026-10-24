@@ -1,6 +1,6 @@
-import WorldGlobe from '@/components/world/WorldGlobe/WorldGlobe';
-import Loader from '@/components/ui/Loader/Loader';
-import ErrorModal from '@/components/ui/modals/ErrorModal/ErrorModal';
+import WorldGlobe from '@/components/world/WorldGlobe';
+import Loader from '@/components/ui/Loader';
+import ErrorModal from '@/components/ui/modals/ErrorModal';
 import { worldCapitalsData } from '@/utils/citiesConfig/worldCapitalsData';
 import { useDataWithMapsHandler } from '@/hooks';
 

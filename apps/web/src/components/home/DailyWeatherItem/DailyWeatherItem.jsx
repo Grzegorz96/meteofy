@@ -12,8 +12,8 @@ import {
   AccordionItemPanel,
   AccordionItemHeading,
 } from 'react-accessible-accordion';
-import ScrollContainer from '@/components/ui/ScrollContainer/ScrollContainer';
-import HourlyWeatherItem from '@/components/home/HourlyWeatherItem/HourlyWeatherItem';
+import ScrollContainer from '@/components/ui/ScrollContainer';
+import HourlyWeatherItem from '@/components/home/HourlyWeatherItem';
 import { format } from 'date-fns';
 
 /**

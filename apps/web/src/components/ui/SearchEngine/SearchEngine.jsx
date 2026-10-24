@@ -1,6 +1,6 @@
 import { useTheme } from 'styled-components';
 import { fetchGeoDbCityOptions } from '@/services/api';
-import AsyncPaginate from './AsyncPaginate/AsyncPaginate';
+import AsyncPaginate from './AsyncPaginate';
 
 const ADDITIONAL = { page: 1 };
 

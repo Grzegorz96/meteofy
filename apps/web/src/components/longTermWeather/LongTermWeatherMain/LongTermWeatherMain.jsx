@@ -10,7 +10,7 @@ import {
 } from './longTermWeatherMain.helpers';
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import '@/assets/CSS/rsuiteStyles/dateRangePickerStyles.css';
-import LongTermWeatherLinearChart from '@/components/longTermWeather/LinearChart/LinearChart';
+import LongTermWeatherLinearChart from '@/components/longTermWeather/LinearChart';
 import { useState, useMemo, memo } from 'react';
 import { getLongTermWeatherFilteredLinearChartData } from '@/utils/charts/chartData';
 import { getLongTermWeatherLinearChartOptions } from '@/utils/charts/chartOptions';

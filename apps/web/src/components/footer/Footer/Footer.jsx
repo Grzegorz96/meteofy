@@ -1,5 +1,5 @@
 import { Footer, StyledPageName } from './Footer.styles';
-import ThemeToggler from '@/components/footer/ThemeToggler/ThemeToggler';
+import ThemeToggler from '@/components/footer/ThemeToggler';
 
 /**
  * @component

@@ -3,7 +3,7 @@ import { useThree } from '@react-three/fiber';
 import { useTexture, Sphere } from '@react-three/drei';
 import { useTheme } from 'styled-components';
 import WeatherBoard from './WeatherBoard';
-import { closeWeatherModal } from '@/components/ui/modals/WeatherModal/WeatherModal';
+import { closeWeatherModal } from '@/components/ui/modals/WeatherModal';
 import EarthDayMap from '@/assets/textures/8k-earth-day-map.jpg';
 import EarthCloudsMap from '@/assets/textures/8k-earth-clouds.jpg';
 import NormalMap from '@/assets/textures/8k-earth-normal-map.jpg';
