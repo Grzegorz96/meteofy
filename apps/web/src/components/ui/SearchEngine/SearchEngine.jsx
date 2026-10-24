@@ -1,6 +1,10 @@
-import { AsyncPaginate } from 'react-select-async-paginate';
-import { fetchGeoDbCityOptions } from '@/services/api';
 import { useTheme } from 'styled-components';
+import { fetchGeoDbCityOptions } from '@/services/api';
+import AsyncPaginate from './AsyncPaginate/AsyncPaginate';
+
+const ADDITIONAL = { page: 1 };
+
+const noOptionsMessage = () => 'No cities found';
 
 /**
  * @component
@@ -19,7 +23,6 @@ export default function SearchEngine({
   handleOnChange,
   styles,
 }) {
-  // Get the current theme from styled-components.
   const theme = useTheme();
 
   return (
@@ -31,7 +34,8 @@ export default function SearchEngine({
       onChange={handleOnChange}
       styles={styles(theme)}
       loadOptions={fetchGeoDbCityOptions}
-      additional={{ page: 1 }}
+      additional={ADDITIONAL}
+      noOptionsMessage={noOptionsMessage}
     />
   );
 }

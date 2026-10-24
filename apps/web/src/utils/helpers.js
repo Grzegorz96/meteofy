@@ -33,22 +33,6 @@ export const getDefaultDateRange = () => {
 };
 
 /**
- * Object representing the delay settings for requesting a city.
- * @typedef {Object} RequestCityDelay
- * @property {number} lastRequestTime - The timestamp of the last request.
- * @property {number} minRequestInterval - The minimum interval between requests in milliseconds.
- */
-
-/**
- * The requestCityDelay object stores the delay settings for requesting a city.
- * @type {RequestCityDelay}
- */
-export const requestCityDelay = {
-  lastRequestTime: 0,
-  minRequestInterval: 1300,
-};
-
-/**
  * Returns an array of date ranges.
  * @param {boolean} moveRangesToBottom Indicates whether to move the ranges to the bottom or left.
  * @returns {Array} An array of date ranges.

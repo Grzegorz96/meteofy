@@ -27,7 +27,7 @@ export default function AirPollutionPage() {
   return (
     <>
       <SearchEngine
-        placeholder="Search AQI by city name"
+        placeholder="Search air quality by city"
         city={selectedCity}
         handleOnChange={(selectedOption) => {
           setSelectedCity(selectedOption);

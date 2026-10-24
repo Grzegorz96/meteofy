@@ -9,3 +9,9 @@ export const API_DATA = {
   limit: 10,
   sort: '-population',
 };
+
+/**
+ * Minimum gap between GeoDB requests, counted from the moment the previous
+ * request finishes (ms). The RapidAPI Basic plan allows 1 request per second.
+ */
+export const MIN_REQUEST_INTERVAL = 1300;

@@ -40,7 +40,7 @@ export default function LongTermWeatherPage() {
   return (
     <>
       <SearchEngine
-        placeholder="Search long term weather by city name"
+        placeholder="Search long-term forecast by city"
         city={selectedCity}
         handleOnChange={(selectedOption) => {
           setSelectedCity(selectedOption);
