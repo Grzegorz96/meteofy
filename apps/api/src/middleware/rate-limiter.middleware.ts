@@ -13,16 +13,16 @@ import { createErrorResponse } from '@/utils/response-helpers';
  * Returns 429 Too Many Requests when limit is exceeded.
  */
 export const apiRateLimiter = rateLimit({
-  windowMs: RATE_LIMITER.WINDOW_MS,
-  limit: RATE_LIMITER.API_LIMIT,
-  standardHeaders: RATE_LIMITER.STANDARD_HEADERS,
+  windowMs: RATE_LIMITER.windowMs,
+  limit: RATE_LIMITER.apiLimit,
+  standardHeaders: RATE_LIMITER.standardHeaders,
   legacyHeaders: false,
-  skip: (req) => req.path === ROUTES.HEALTH,
+  skip: (req) => req.path === ROUTES.health,
   handler: (_req, res) => {
     const response = createErrorResponse(
-      HTTP_STATUS.TOO_MANY_REQUESTS,
-      HTTP_MESSAGES.TOO_MANY_REQUESTS
+      HTTP_STATUS.tooManyRequests,
+      HTTP_MESSAGES.tooManyRequests
     );
-    res.status(HTTP_STATUS.TOO_MANY_REQUESTS).json(response);
+    res.status(HTTP_STATUS.tooManyRequests).json(response);
   },
 });

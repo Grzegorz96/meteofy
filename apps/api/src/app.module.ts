@@ -43,8 +43,8 @@ export class AppModule {
    * Initializes application routes.
    */
   public initializeRoutes(): void {
-    this.app.get(ROUTES.HEALTH, (_req: Request, res: Response): void => {
-      res.status(HTTP_STATUS.OK).json({ status: HTTP_MESSAGES.OK });
+    this.app.get(ROUTES.health, (_req: Request, res: Response): void => {
+      res.status(HTTP_STATUS.ok).json({ status: HTTP_MESSAGES.ok });
     });
   }
 
@@ -61,7 +61,7 @@ export class AppModule {
    * @param port - Port number (optional, defaults to 3000 or from env).
    */
   public start(port?: number): void {
-    const serverPort = port || Number(process.env.PORT) || SERVER.DEFAULT_PORT;
+    const serverPort = port || Number(process.env.PORT) || SERVER.defaultPort;
 
     this.app.listen(serverPort, () => {
       this.logger.info(`Server running on http://localhost:${serverPort}`, {

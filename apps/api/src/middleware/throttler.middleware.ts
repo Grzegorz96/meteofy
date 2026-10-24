@@ -6,12 +6,12 @@ import { THROTTLER } from '@/utils/constants';
  * After 50 requests in 15 minutes, each extra request adds 100ms delay (up to 2s).
  */
 export const apiThrottler = slowDown({
-  windowMs: THROTTLER.WINDOW_MS,
-  delayAfter: THROTTLER.API_DELAY_AFTER,
+  windowMs: THROTTLER.windowMs,
+  delayAfter: THROTTLER.apiDelayAfter,
   delayMs: (used) => {
-    return (used - THROTTLER.API_DELAY_AFTER) * THROTTLER.API_DELAY_MS;
+    return (used - THROTTLER.apiDelayAfter) * THROTTLER.apiDelayMs;
   },
-  maxDelayMs: THROTTLER.API_MAX_DELAY_MS,
+  maxDelayMs: THROTTLER.apiMaxDelayMs,
   skipSuccessfulRequests: false,
   skipFailedRequests: false,
 });

@@ -17,7 +17,7 @@ function bootstrap(): void {
     appModule.start();
   } catch (error) {
     console.error('Failed to start server:', error);
-    process.exit(SERVER.EXIT_CODE_ERROR);
+    process.exit(SERVER.exitCodeError);
   }
 }
 

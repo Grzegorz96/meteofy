@@ -12,8 +12,8 @@ export function notFoundMiddleware(
   _next: NextFunction
 ): void {
   const response = createErrorResponse(
-    HTTP_STATUS.NOT_FOUND,
-    HTTP_MESSAGES.ROUTE_NOT_FOUND
+    HTTP_STATUS.notFound,
+    HTTP_MESSAGES.routeNotFound
   );
-  res.status(HTTP_STATUS.NOT_FOUND).json(response);
+  res.status(HTTP_STATUS.notFound).json(response);
 }

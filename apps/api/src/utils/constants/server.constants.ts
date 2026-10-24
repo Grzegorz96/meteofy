@@ -2,6 +2,6 @@
  * Server configuration constants.
  */
 export const SERVER = {
-  DEFAULT_PORT: 3000,
-  EXIT_CODE_ERROR: 1,
+  defaultPort: 3000,
+  exitCodeError: 1,
 } as const;

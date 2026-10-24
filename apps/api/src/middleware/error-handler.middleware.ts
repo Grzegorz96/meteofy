@@ -35,8 +35,8 @@ export function createErrorHandlerMiddleware(
     let message: string;
 
     if (err instanceof SyntaxError && 'body' in err) {
-      status = HTTP_STATUS.BAD_REQUEST;
-      message = HTTP_MESSAGES.INVALID_JSON;
+      status = HTTP_STATUS.badRequest;
+      message = HTTP_MESSAGES.invalidJson;
       logger.warn('JSON parsing error occurred', {
         method: req.method,
         url: req.url,
@@ -48,8 +48,8 @@ export function createErrorHandlerMiddleware(
         },
       });
     } else {
-      status = HTTP_STATUS.INTERNAL_SERVER_ERROR;
-      message = HTTP_MESSAGES.INTERNAL_SERVER_ERROR;
+      status = HTTP_STATUS.internalServerError;
+      message = HTTP_MESSAGES.internalServerError;
       logger.error('Internal server error occurred', err, {
         method: req.method,
         url: req.url,

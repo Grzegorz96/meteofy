@@ -29,7 +29,7 @@ export class Logger implements LoggerInterface {
     this.logDir = path.resolve(currentDir, '..', '..', 'logs');
 
     this.config = {
-      level: process.env.LOG_LEVEL || LOGGER.DEFAULT_LEVEL,
+      level: process.env.LOG_LEVEL || LOGGER.defaultLevel,
       enableConsole: process.env.LOG_CONSOLE !== 'false',
       enableFile: process.env.LOG_FILE !== 'false',
       ...config,
@@ -55,7 +55,7 @@ export class Logger implements LoggerInterface {
         new winston.transports.Console({
           format: winston.format.combine(
             winston.format.colorize(),
-            winston.format.timestamp({ format: LOGGER.TIMESTAMP_FORMAT }),
+            winston.format.timestamp({ format: LOGGER.timestampFormat }),
             winston.format.printf(({ timestamp, level, message, ...meta }) => {
               const metaString =
                 Object.keys(meta).length > 0 ? ` ${JSON.stringify(meta)}` : '';
@@ -69,30 +69,30 @@ export class Logger implements LoggerInterface {
     if (this.config.enableFile) {
       transports.push(
         new winston.transports.File({
-          filename: path.join(this.logDir, LOGGER.LOG_FILES.COMBINED),
+          filename: path.join(this.logDir, LOGGER.logFiles.combined),
           format: winston.format.combine(
             winston.format.timestamp(),
             winston.format.printf(({ timestamp, level, message, ...meta }) => {
               return JSON.stringify({ timestamp, level, message, ...meta });
             })
           ),
-          maxsize: LOGGER.MAX_FILE_SIZE,
-          maxFiles: LOGGER.MAX_FILES,
+          maxsize: LOGGER.maxFileSize,
+          maxFiles: LOGGER.maxFiles,
         })
       );
 
       transports.push(
         new winston.transports.File({
-          filename: path.join(this.logDir, LOGGER.LOG_FILES.ERROR),
-          level: LOGGER.LOG_LEVEL_ERROR,
+          filename: path.join(this.logDir, LOGGER.logFiles.error),
+          level: LOGGER.logLevelError,
           format: winston.format.combine(
             winston.format.timestamp(),
             winston.format.printf(({ timestamp, level, message, ...meta }) => {
               return JSON.stringify({ timestamp, level, message, ...meta });
             })
           ),
-          maxsize: LOGGER.MAX_FILE_SIZE,
-          maxFiles: LOGGER.MAX_FILES,
+          maxsize: LOGGER.maxFileSize,
+          maxFiles: LOGGER.maxFiles,
         })
       );
     }
