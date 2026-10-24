@@ -15,32 +15,6 @@ const styles = css`
     overflow: hidden;
   }
 
-  ::-webkit-scrollbar {
-    width: 8px;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-    margin-block: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: 25px;
-  }
-
-  :hover::-webkit-scrollbar-thumb {
-    background-color: #575757;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #373737;
-  }
-
   body {
     background: ${({ theme }) => theme.primary};
     transition: background-color 0.25s ease-in-out;
@@ -52,10 +26,11 @@ const styles = css`
     box-sizing: border-box;
     font-family: ${({ theme }) => theme.fontFamily};
     -webkit-tap-highlight-color: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(87, 87, 87, 0.55) transparent;
 
     @media (max-width: 768px) {
       scrollbar-width: none;
-      -ms-overflow-style: none;
     }
   }
 `;
