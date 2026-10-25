@@ -27,7 +27,7 @@ alwaysApply: false
 ## Data
 
 - HTTP: axios modules in `src/services/api`, export from that folder’s `index.js`.
-- Keys: `import.meta.env` (`VITE_*`) only. Never commit `.env`.
+- Keys: `import.meta.env` (`VITE_*`) from `apps/web/.env` only (see `apps/web/.env.example`). Never commit `.env`.
 - Redux Toolkit: `cityData` (selected city), `themeData` (dark mode) under `src/state`.
 - Theme persistence: `localStorage` key `THEME_DATA_KEY` (`meteofy-is-dark-theme`); values `"true"` / `"false"`. Missing → system preference via middleware.
 - Map cities: `src/utils/citiesConfig`. Poland SVG: change `name` / `coord` / `title` only (keep shape fields).

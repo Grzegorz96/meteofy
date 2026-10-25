@@ -1,25 +1,30 @@
 # Meteofy documentation
 
-Release notes, screenshots, and version-specific docs live here. Each version is self-contained under `releases/<version>/`.
+Index for architecture, plans, and versioned release notes/screenshots.
 
-For agents and contributors:
+## For agents and contributors
 
-- [architecture.md](./architecture.md) — layers, data flow, directory map
-- [plans/](./plans/README.md) — larger task plans
-- [../AGENTS.md](../AGENTS.md) — Cursor/agent commands and conventions
+| Doc                                  | Purpose                              |
+| ------------------------------------ | ------------------------------------ |
+| [../AGENTS.md](../AGENTS.md)         | Stack, commands, env, Cursor layout  |
+| [architecture.md](./architecture.md) | Layers, data flow, directory map     |
+| [plans/](./plans)                    | Larger task plans                    |
+| [../README.md](../README.md)         | Product overview, setup, screenshots |
 
 ## Releases
 
-| Version                      | Status  | Notes                                   |
-| ---------------------------- | ------- | --------------------------------------- |
-| [v1.0.0](./releases/v1.0.0/) | Current | Original UI before the planned redesign |
+| Version                      | Status                  | Notes                                                                |
+| ---------------------------- | ----------------------- | -------------------------------------------------------------------- |
+| [v1.0.0](./releases/v1.0.0/) | Current product UI docs | Original UI; living tree is now a monorepo (see release README note) |
 
 ## Layout
 
 ```text
 docs/
 ├── README.md                 # this index
+├── architecture.md
 ├── logo.svg
+├── plans/                    # implementation plans (one file per initiative)
 └── releases/
     └── v1.0.0/
         ├── README.md         # release notes and screenshots

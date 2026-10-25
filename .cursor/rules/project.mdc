@@ -9,7 +9,8 @@ Read [AGENTS.md](../../AGENTS.md) and [docs/architecture.md](../../docs/architec
 
 - Monorepo: `apps/web` (JSX), `apps/api` (TS Express), `packages/shared` (`@meteofy/shared`).
 - No Next.js, no Tailwind. Prefer existing styled-components themes and folder patterns.
+- Web env: `apps/web/.env` (`VITE_*`). API env: `apps/api/.env`. Root `.env` is for optional MCP tools, not Vite.
 - Lint must stay at zero warnings (`--max-warnings 0`).
 - Do not add a test runner unless asked.
-- Never commit secrets or invent API keys.
+- Never commit secrets or invent API keys; do not bypass env/git hooks.
 - Keep AI/product docs in sync with code changes (see `keep-docs-updated.mdc`).

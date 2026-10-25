@@ -20,14 +20,15 @@ Skip for pure refactors, typo fixes, or edits that do not change structure, beha
 
 ## What to touch (as applicable)
 
-| Doc | Update when… |
-| --- | --- |
-| [AGENTS.md](../../AGENTS.md) | stack, commands, env, Cursor layout, agent entrypoints |
-| [docs/architecture.md](../../docs/architecture.md) | layers, data flow, directory map, new modules |
-| [README.md](../../README.md) | product overview, features, screenshots, setup |
-| [docs/README.md](../../docs/README.md) | release index / doc map |
-| [docs/plans/](../../docs/plans/) | close or revise plans that the work completed or invalidated |
-| `.cursor/rules/*.mdc` | conventions the agent must follow changed |
+| Doc                                                | Update when…                                                 |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| [AGENTS.md](../../AGENTS.md)                       | stack, commands, env, Cursor layout, agent entrypoints       |
+| [docs/architecture.md](../../docs/architecture.md) | layers, data flow, directory map, new modules                |
+| [README.md](../../README.md)                       | product overview, features, screenshots, setup               |
+| [docs/README.md](../../docs/README.md)             | doc map / release index                                      |
+| [docs/plans/](../../docs/plans)                    | close or revise plans that the work completed or invalidated |
+| `.cursor/rules/*.mdc`                              | conventions the agent must follow changed                    |
+| `.cursor/hooks.json` / hook scripts                | agent guardrails or format pipeline changed                  |
 
 Prefer editing existing docs over adding new ones. Prefer accurate short updates over large rewrites.
 

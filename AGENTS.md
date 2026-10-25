@@ -12,7 +12,7 @@ npm workspaces monorepo:
 | `apps/api`        | Express 5 + TypeScript, OOP (`AppModule`, Winston logger) |
 | `packages/shared` | `@meteofy/shared` — shared TS → `dist` JS + `.d.ts`       |
 
-No Next.js, no Tailwind. Path alias `@/*` → `src/*` in both apps. License: AGPL-3.0.
+No Next.js, no Tailwind. Path alias `@/*` → `src/*` in both apps. License: AGPL-3.0 (whole monorepo).
 
 ## Commands (repo root)
 
@@ -29,25 +29,33 @@ npm run format | format:check
 
 Workspace-scoped: `npm run <script> -w web|api|@meteofy/shared`.
 
-API Docker: `docker compose up` (port 3000, `apps/api/.env`).
+API Docker: `docker compose up` (port 3000, `apps/api/.env`). Web Vite proxies `/api` → `http://localhost:3000`.
 
 ## Env
 
-- Web (project root `.env`): `VITE_VISUAL_CROSSING_API_KEY`, `VITE_GEO_DB_API_KEY`, `VITE_OPEN_WEATHER_API_KEY`, `VITE_GEO_APIFY_API_KEY`
-- API: `apps/api/.env` (see `apps/api/.env.example`)
-- Never commit real `.env` files
+| File                         | Purpose                                                |
+| ---------------------------- | ------------------------------------------------------ |
+| `apps/web/.env`              | Vite `VITE_*` keys (from `apps/web/.env.example`)      |
+| `apps/api/.env`              | `PORT`, logging (from `apps/api/.env.example`)         |
+| Root `.env` / `.env.example` | Optional Cursor MCP (e.g. Context7) — not used by Vite |
+
+Never commit real `.env` files. Agent Read/Tab and shell access to secret `.env*` is blocked by hooks (allowlist: `.env.example` / `.sample` / `.template` / `.dist`).
 
 ## Docs for agents
 
 - [docs/architecture.md](docs/architecture.md) — layers, data flow, directory map
 - [docs/plans/](docs/plans/) — larger task plans
-- [docs/README.md](docs/README.md) — versioned release docs / screenshots
-- [README.md](README.md) — product overview, features, screenshots
+- [docs/README.md](docs/README.md) — docs index / versioned releases
+- [README.md](README.md) — product overview, features, screenshots, setup
 
 ## Cursor layout
 
-- Rules: `.cursor/rules/` (scoped by glob)
-- Skills: `.cursor/skills/example-skill/` — learning stub; install real skills from upstream yourself
-- Hooks: `.cursor/hooks.json` → `afterFileEdit`: `format.sh`; `beforeShellExecution`: `block-git.sh` (blocks agent `git add` / `commit` / `push`), `block-env-read.sh` (blocks shell refs/globs to secret `.env*` / `.envrc`; allows `.env.example`/`.sample`/`.template`/`.dist`; matcher `\\.e` so normal commands skip the guard but `.e*` / `.en?` still hit it); `beforeReadFile` + `beforeTabFileRead`: `block-env-file-read.sh` (blocks Read/Tab of secret env files incl. multi-dot names and prompt `attachments`; same allowlist)
-- MCP: `.cursor/mcp.json` (empty by default)
-- Ignore: `.cursorignore`
+- Rules: `.cursor/rules/` — `project` + `keep-docs-updated` (always); `web-frontend`, `api-backend` (globs); `git-commits` (on request)
+- Skills (see `skills-lock.json`): `caveman`, `domain-modeling`, `grill-me`, `grill-with-docs`, `grilling`
+- Hooks (`.cursor/hooks.json`):
+  - `afterFileEdit` → `format.sh`
+  - `beforeShellExecution` → `block-git.sh` (matcher: `git` / `git.exe`); `block-env-read.sh` (matcher: `\.e` — blocks secret env refs/globs in shell)
+  - `beforeReadFile` / `beforeTabFileRead` → `block-env-file-read.sh` (blocks secret env file reads; checks `attachments`)
+- MCP: `.cursor/mcp.json`
+- Ignore: `.cursorignore` (deps, dist, secrets, screenshot binaries)
+- Format: root Prettier; `.cursor/skills/` is in `.prettierignore` (vendored / `skills-lock.json`)

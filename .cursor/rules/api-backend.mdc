@@ -18,7 +18,8 @@ alwaysApply: false
 - Keep JSDoc on public class methods and exported helpers.
 - Responses via `createErrorResponse` / helpers in `src/utils/response-helpers.ts`.
 - Current routes: `GET /health` only; `ROUTES.api` reserved for future `/api`.
-- Env via `dotenv` + `process.env` (e.g. `PORT`). Example: `apps/api/.env.example`.
+- Env via `dotenv` + `process.env` from `apps/api/.env` (e.g. `PORT`). Example: `apps/api/.env.example`.
+- Docker: root `docker-compose.yml` builds `apps/api/Dockerfile` (workspace install of api + shared).
 - Import shared code as `@meteofy/shared` (workspace `"*"`), not relative paths into `packages/`.
 
 ## packages/shared
