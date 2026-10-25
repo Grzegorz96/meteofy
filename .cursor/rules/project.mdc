@@ -1,21 +1,16 @@
 ---
-description: Meteofy stack, folders, and npm scripts
+description: Meteofy always-on constraints for the agent
 alwaysApply: true
 ---
 
 # Meteofy
 
-React 18, Vite 5, JavaScript (JSX). No TypeScript, Next.js, or Tailwind.
+Read [AGENTS.md](../../AGENTS.md) and [docs/architecture.md](../../docs/architecture.md) when starting non-trivial work.
 
-- `src/main.jsx` mounts the Redux store and `App`.
-- `src/pages` are route screens. Paths live in `src/utils/constants/routes.js` and are registered in `src/routes`.
-- `src/components` holds UI. A folder contains `Name.jsx` and, when styled, `Name.styles.jsx`.
-- `src/services/api` fetches weather and geocoding. Endpoint details live in `src/utils/constants/api`.
-- `src/state` is Redux Toolkit: `cityData` for the selected city, `themeData` for dark mode.
-- `src/hooks` and `src/utils` hold shared logic, formatters, chart config, and city lists.
-- `src/utils/styles` holds the styled-components theme and global styles.
-- `public/` holds static assets such as weather icons.
-
-Routing is React Router 6. Styles are styled-components with the existing light and dark theme. Maps are Leaflet (Europe), SVG (Poland), and React Three Fiber (world). Charts use Chart.js. The city popup is SweetAlert2 in `src/components/ui/modals/WeatherModal`. HTTP uses axios.
-
-Scripts: `npm run dev`, `npm run build`, `npm run preview`, `npm run lint` (zero warnings), `npm run format`.
+- Monorepo: `apps/web` (JSX), `apps/api` (TS Express), `packages/shared` (`@meteofy/shared`).
+- No Next.js, no Tailwind. Prefer existing styled-components themes and folder patterns.
+- Web env: `apps/web/.env` (`VITE_*`). API env: `apps/api/.env`. Root `.env` is for optional MCP tools, not Vite.
+- Lint must stay at zero warnings (`--max-warnings 0`).
+- Do not add a test runner unless asked.
+- Never commit secrets or invent API keys; do not bypass env/git hooks.
+- Keep AI/product docs in sync with code changes (see `keep-docs-updated.mdc`).

@@ -13,6 +13,7 @@
   <a href="https://github.com/Grzegorz96/meteofy/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/Grzegorz96/meteofy" /></a>
   <a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/license-AGPL--3.0-blue" /></a>
   <img alt="React" src="https://img.shields.io/badge/React-Vite-61dafb" />
+  <img alt="Monorepo" src="https://img.shields.io/badge/monorepo-npm%20workspaces-brightgreen" />
 </p>
 
 <p align="center">
@@ -45,38 +46,69 @@ Meteofy shows current weather and 15-day forecasts for cities around the world, 
 
 It works on every screen size, supports light and dark themes, and combines data from several external APIs.
 
+The repo is an **npm workspaces monorepo**: the React app in `apps/web`, a growing Express API in `apps/api`, and shared TypeScript in `packages/shared`. Today the browser still talks to weather providers directly; the API exposes health/security scaffolding for future `/api` routes.
+
 **Live demo:** https://meteofy-app.netlify.app
+
+For Cursor/agent conventions see [AGENTS.md](AGENTS.md). Architecture: [docs/architecture.md](docs/architecture.md).
 
 ## Project structure
 
 ```text
 meteofy/
-├── docs/                         # Versioned docs and screenshots
-│   ├── README.md                 # Index of releases
-│   ├── logo.svg
-│   └── releases/
-│       └── v1.0.0/
-│           ├── README.md
-│           └── screenshots/
-│               ├── pc/
-│               └── mobile/
-├── public/                       # Static assets (weather icons, etc.)
-├── src/
-│   ├── main.jsx                  # Mounts Redux store and App
-│   ├── App.jsx                   # Theme provider, global styles, router
-│   ├── app/store.js              # Redux store
-│   ├── pages/                    # Route screens
-│   ├── components/               # UI by feature (Name.jsx + Name.styles.jsx)
-│   ├── layouts/                  # MainLayout (header, outlet, footer)
-│   ├── routes/                   # React Router 6 config
-│   ├── services/api/             # Axios clients for external APIs
-│   ├── state/                    # Redux Toolkit slices + theme persistence
-│   ├── hooks/                    # Shared data and UI hooks
-│   ├── utils/                    # Constants, charts, cities, formatters, theme
-│   └── assets/                   # Images, textures, CSS helpers
-├── index.html
-├── package.json
-└── vite.config.js
+├── apps/
+│   ├── web/                         # React 18 + Vite (JavaScript/JSX)
+│   │   ├── public/                  # Static assets (weather icons)
+│   │   ├── src/
+│   │   │   ├── main.jsx             # Mounts Redux store and App
+│   │   │   ├── App.jsx              # Theme provider, global styles, router
+│   │   │   ├── app/                 # Redux store
+│   │   │   ├── pages/               # Route screens
+│   │   │   ├── components/          # UI by feature (Name.jsx + styles)
+│   │   │   ├── layouts/             # MainLayout (header, outlet, footer)
+│   │   │   ├── routes/              # React Router 6 config
+│   │   │   ├── services/api/        # Axios clients for external APIs
+│   │   │   ├── state/               # Redux Toolkit slices + theme persistence
+│   │   │   ├── hooks/               # Shared data and UI hooks
+│   │   │   ├── utils/               # Constants, charts, cities, formatters, theme
+│   │   │   └── assets/              # Images, textures, CSS helpers
+│   │   └── .env.example             # VITE_* keys for the web app
+│   └── api/                         # Express 5 + TypeScript
+│       ├── Dockerfile
+│       ├── src/
+│       │   ├── index.ts             # Bootstrap
+│       │   ├── app.module.ts        # Express AppModule
+│       │   ├── middleware/          # helmet, cors, rate-limit, errors, …
+│       │   ├── logger/              # Winston
+│       │   └── utils/               # Constants, response helpers
+│       └── .env.example             # PORT, logging
+├── packages/
+│   └── shared/                      # @meteofy/shared (pure TS → dist)
+│       └── src/                     # Types, schemas, constants, helpers
+├── docs/
+│   ├── architecture.md              # Layers, data flow, directory map
+│   ├── plans/                       # Larger task plans
+│   ├── releases/                    # Versioned notes + screenshots
+│   └── logo.svg
+├── .cursor/
+│   ├── rules/                       # Agent rules (project, web, api, …)
+│   ├── hooks/ + hooks.json          # Format, git guard, env guards
+│   ├── skills/                      # Project skills (see skills-lock.json)
+│   └── mcp.json                     # MCP server config
+├── .vscode/                         # Editor extensions + settings
+├── AGENTS.md                        # Agent/contributor entrypoint
+├── README.md                        # Product overview (this file)
+├── LICENSE.md                       # AGPL-3.0
+├── package.json                     # Workspaces root scripts
+├── package-lock.json
+├── skills-lock.json                 # Locked Cursor skill versions
+├── docker-compose.yml               # Optional API container (port 3000)
+├── .editorconfig
+├── .prettierrc + .prettierignore
+├── .gitignore
+├── .dockerignore
+├── .cursorignore                    # Extra ignores for the agent
+└── .env.example                     # Optional MCP keys (not Vite)
 ```
 
 ## Features
@@ -104,7 +136,10 @@ meteofy/
 
 | Area           | Technologies                                                                                                                                      |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Core           | JavaScript, React 18, Vite 5, React Router 6, HTML, CSS                                                                                           |
+| Monorepo       | npm workspaces (`apps/*`, `packages/*`), concurrently for `dev`                                                                                   |
+| Web            | JavaScript/JSX, React 18, Vite 5, React Router 6                                                                                                  |
+| API            | TypeScript, Express 5, Winston, helmet / cors / rate-limit / slow-down                                                                            |
+| Shared         | `@meteofy/shared` — pure TypeScript types/helpers built with `tsc`                                                                                |
 | State          | Redux Toolkit, React Redux                                                                                                                        |
 | Styling and UI | Styled Components, RSuite, React Icons, React Spinners, SweetAlert2, FontAwesome, React Accessible Accordion, React Burger Menu, React Responsive |
 | 3D             | Three.js, @react-three/fiber, @react-three/drei                                                                                                   |
@@ -112,9 +147,10 @@ meteofy/
 | Maps           | Leaflet, React Leaflet, React Leaflet Cluster                                                                                                     |
 | Data and forms | Axios, React Select, React Select Async Paginate                                                                                                  |
 | SVG            | Vite Plugin SVGR                                                                                                                                  |
-| Hosting        | [Netlify](https://www.netlify.com)                                                                                                                |
+| Hosting (web)  | [Netlify](https://www.netlify.com)                                                                                                                |
+| API packaging  | Optional Docker Compose → port 3000                                                                                                               |
 
-**External APIs:**
+**External APIs (used by the web app today):**
 
 | Purpose                                                          | Provider                                                                         |
 | ---------------------------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -126,9 +162,9 @@ meteofy/
 
 ## Getting started
 
-The quickest way is the [live demo](https://meteofy-app.netlify.app). To run the app locally you need a web browser, [Node.js](https://nodejs.org) and an editor such as VS Code.
+The quickest way is the [live demo](https://meteofy-app.netlify.app). To run locally you need [Node.js](https://nodejs.org) (npm) and an editor such as VS Code / Cursor.
 
-**1. Clone and install**
+**1. Clone and install** (from the repo root)
 
 ```bash
 git clone https://github.com/Grzegorz96/meteofy.git
@@ -138,7 +174,9 @@ npm install
 
 **2. Get API keys** from [Visual Crossing](https://www.visualcrossing.com), [GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities), [OpenWeatherMap](https://openweathermap.org) and [Geoapify](https://www.geoapify.com).
 
-**3. Create a `.env` file** in the project root:
+**3. Env files**
+
+Web (required for the UI) — copy `apps/web/.env.example` → `apps/web/.env`:
 
 ```env
 VITE_VISUAL_CROSSING_API_KEY=your_api_key
@@ -147,15 +185,21 @@ VITE_OPEN_WEATHER_API_KEY=your_api_key
 VITE_GEO_APIFY_API_KEY=your_api_key
 ```
 
-**4. Start the dev server**
+API (optional for local backend) — copy `apps/api/.env.example` → `apps/api/.env` (see that file for `PORT` and logging).
+
+Never commit real `.env` files.
+
+**4. Start development** (shared watch + API + web)
 
 ```bash
 npm run dev
 ```
 
-The app will be available on the local address printed in the terminal.
+Vite prints the web URL. The web dev server proxies `/api` to `http://localhost:3000`.
 
-Useful scripts: `npm run build` · `npm run preview` · `npm run lint` · `npm run format`
+Useful root scripts: `npm run build` · `npm run lint` · `npm run typecheck` · `npm run format` · `npm run dev:web` / `dev:api` / `dev:shared`
+
+API only via Docker: `docker compose up` (uses `apps/api/.env`, port 3000).
 
 ## Versions and documentation
 
@@ -165,7 +209,13 @@ Every release is tagged in git and has its own documentation (features and scree
 | --------- | ----------- | -------------------------------------------- | ------------------------------------------------------------------- |
 | **1.0.0** | Original UI | [docs/releases/v1.0.0](docs/releases/v1.0.0) | [v1.0.0](https://github.com/Grzegorz96/meteofy/releases/tag/v1.0.0) |
 
-The full list of versions is in [docs/README.md](docs/README.md). The project follows [Semantic Versioning](https://semver.org): a major version for a new UI or breaking changes, a minor version for new features, a patch for fixes.
+Also useful:
+
+- [docs/README.md](docs/README.md) — docs index
+- [docs/architecture.md](docs/architecture.md) — monorepo layers and data flow
+- [AGENTS.md](AGENTS.md) — agent/contributor guide
+
+The project follows [Semantic Versioning](https://semver.org): a major version for a new UI or breaking changes, a minor version for new features, a patch for fixes.
 
 When you publish a new version (for example `v2.0.0`), add `docs/releases/v2.0.0/` with its own `README.md` and `screenshots/`, link it above, and update the hero preview images in this README so they always show the latest UI.
 
@@ -180,13 +230,15 @@ Building Meteofy took about three months and taught me a lot about React and its
 - built dynamic charts where users switch between datasets on a single chart,
 - got better at using ready-made library solutions instead of reinventing them.
 
+Later work split the repo into an npm workspaces monorepo and added Express/TypeScript scaffolding plus Cursor agent tooling (rules, hooks, skills).
+
 ## Author and contact
 
 **Grzegorz96** ([GitHub](https://www.github.com/Grzegorz96)) · grzesstrzeszewski@gmail.com
 
 ## License
 
-Released under the [AGPL-3.0 license](LICENSE.md).
+Released under the [AGPL-3.0 license](LICENSE.md). The whole monorepo (web, api, shared) is covered by that license.
 
 ## Screenshots
 

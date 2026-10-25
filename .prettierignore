@@ -19,6 +19,7 @@ __snapshots__/
 .env
 .env.*
 !.env.example
+!**/.env.example
 
 # Logs
 *.log
@@ -36,8 +37,11 @@ pnpm-lock.yaml
 .vscode/
 .idea/
 
-# Static assets
-public/
+# Vendored Cursor skills (keep upstream text; see skills-lock.json)
+.cursor/skills/
+
+# Static assets (web)
+apps/web/public/
 
 # Markdown
 LICENSE.md

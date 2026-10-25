@@ -1,0 +1,47 @@
+---
+description: React web app and shared package conventions
+globs: apps/web/**/*,packages/shared/**/*
+alwaysApply: false
+---
+
+# Web + shared
+
+`packages/shared` (`@meteofy/shared`) is shared by **web and api**. Prefer putting cross-app types, schemas, constants, and pure helpers there instead of duplicating them in `apps/web`.
+
+## apps/web
+
+- Entry: `src/main.jsx` → Redux store + `App`.
+- Pages in `src/pages`; paths in `src/utils/constants/routes.js`; router in `src/routes`.
+- Components: folder with `Name.jsx` + optional `Name.styles.jsx` + `index.js` re-export.
+- Alias `@/*` → `src/*` (see `jsconfig.json`).
+- Import shared code as `@meteofy/shared` (workspace `"*"`), not relative paths into `packages/`.
+
+## Code style
+
+- Functional components. Default export for components/pages; named for hooks, services, constants.
+- Prettier: single quotes, semicolons, trailing commas, print width 80.
+- Handlers: `handle*` prefix. Booleans: `isLoading`, `hasError`.
+- Keep JSDoc on exported functions in files that already use it.
+- Styles: styled-components + existing light/dark theme in `src/utils/styles`. No Tailwind.
+
+## Data
+
+- HTTP: axios modules in `src/services/api`, export from that folder’s `index.js`.
+- Keys: `import.meta.env` (`VITE_*`) from `apps/web/.env` only (see `apps/web/.env.example`). Never commit `.env`.
+- Redux Toolkit: `cityData` (selected city), `themeData` (dark mode) under `src/state`.
+- Theme persistence: `localStorage` key `THEME_DATA_KEY` (`meteofy-is-dark-theme`); values `"true"` / `"false"`. Missing → system preference via middleware.
+- Map cities: `src/utils/citiesConfig`. Poland SVG: change `name` / `coord` / `title` only (keep shape fields).
+
+## packages/shared
+
+- Pure types, schemas, constants, helpers only — no React, no Express, no DOM/I/O.
+- Export from `src/index.ts`. Build/watch with `tsc` (`dev:shared` / `build` on `@meteofy/shared`).
+- Web and api both depend on a built `dist` (or running shared watch).
+
+## UI libs in use
+
+React Router 6, Leaflet (Europe), SVG (Poland), R3F/Three (world), Chart.js, SweetAlert2 (`WeatherModal`), RSuite, axios.
+
+## Checks
+
+After substantive edits: `npm run lint:web`. If `packages/shared` changed: also `npm run lint:shared` and `npm run typecheck`.

@@ -1,0 +1,12 @@
+---
+description: Git branch and commit conventions for this repo
+alwaysApply: false
+---
+
+# Git
+
+- Host: **GitHub** (`origin` → `Grzegorz96/meteofy`). Default integration branch: `develop`.
+- The agent cannot run `git add` / `commit` / `push` (blocked by `block-git.sh`). Never try to work around it. Instead, finish the change and give the user the exact commands and a proposed commit message to run manually.
+- Commit messages: short, imperative / past-tense English describing **why** or the user-visible fix (e.g. `fixed scrollbar`, `added backend: logger module`). No ticket-id prefix.
+- Branches: short kebab-case from `develop` (e.g. `feat/air-pollution-chart`, `fix/search-rate-limit`).
+- Never stage or suggest committing `.env`, credentials, or large generated dumps. `package-lock.json` is tracked; do not create lockfile churn.

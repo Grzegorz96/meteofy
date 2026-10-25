@@ -1,14 +1,31 @@
 # Dependencies and build output
 node_modules/
+**/node_modules/
 dist/
+**/dist/
 dist-ssr/
 .vite/
+**/coverage/
+*.tsbuildinfo
 
-# Secrets and logs
+# Secrets and local env
 .env
 .env.*
-*.log
+!.env.example
+!**/.env.example
+*.local
+apps/api/logs/
+logs/
 
-# Lockfile and coverage
+# Lockfile noise and dumps
 package-lock.json
-coverage/
+*.log
+npm-debug.log*
+
+# Large / binary-heavy docs assets (agent can open specific paths if asked)
+docs/releases/**/screenshots/
+docs/logo.svg
+
+# OS / editor junk
+.DS_Store
+.idea/

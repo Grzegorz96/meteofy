@@ -1,0 +1,32 @@
+---
+description: Express API and shared package conventions
+globs: apps/api/**/*,packages/shared/**/*
+alwaysApply: false
+---
+
+# API + shared
+
+`packages/shared` (`@meteofy/shared`) is shared by **api and web**. Prefer cross-app types/schemas/constants/helpers here instead of duplicating them in `apps/api`.
+
+## apps/api
+
+- TypeScript, strict; ESM (`"type": "module"`). Alias `@/*` → `src/*`.
+- OOP entry: `AppModule` in `app.module.ts`; bootstrap in `index.ts`.
+- Middleware as named exports under `src/middleware/` (`*.middleware.ts`), re-exported from `index.ts`.
+- Constants as `SCREAMING_SNAKE` objects in `src/utils/constants/` (`*.constants.ts`), `as const` where useful.
+- Logger: Winston via `Logger` / `LoggerInterface` in `src/logger/`.
+- Keep JSDoc on public class methods and exported helpers.
+- Responses via `createErrorResponse` / helpers in `src/utils/response-helpers.ts`.
+- Current routes: `GET /health` only; `ROUTES.api` reserved for future `/api`.
+- Env via `dotenv` + `process.env` from `apps/api/.env` (e.g. `PORT`). Example: `apps/api/.env.example`.
+- Docker: root `docker-compose.yml` builds `apps/api/Dockerfile` (workspace install of api + shared).
+- Import shared code as `@meteofy/shared` (workspace `"*"`), not relative paths into `packages/`.
+
+## packages/shared
+
+- Pure types, schemas, constants, helpers only — no React, no Express, no DOM/I/O.
+- Export from `src/index.ts`. Build/watch with `tsc`; both apps need a built `dist` (or `dev:shared` watch).
+
+## Checks
+
+After substantive edits: `npm run typecheck` and `npm run lint:api` / `npm run lint:shared`.

@@ -1,0 +1,40 @@
+---
+description: Keep AI and project docs in sync when the codebase changes
+alwaysApply: true
+---
+
+# Keep docs updated
+
+When a change meaningfully alters how the project works, **update the relevant docs in the same change** — do not leave AGENTS/README/architecture months behind the code.
+
+## When to update
+
+Trigger docs updates if you (or the user) introduce or change any of:
+
+- apps, packages, modules, or major folders
+- features, user-facing behavior, or data flow
+- stack, commands, env vars, Docker, or workspace scripts
+- agent conventions (rules, hooks, skills, lint/format expectations)
+
+Skip for pure refactors, typo fixes, or edits that do not change structure, behavior, or contributor/agent guidance.
+
+## What to touch (as applicable)
+
+| Doc                                                | Update when…                                                 |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| [AGENTS.md](../../AGENTS.md)                       | stack, commands, env, Cursor layout, agent entrypoints       |
+| [docs/architecture.md](../../docs/architecture.md) | layers, data flow, directory map, new modules                |
+| [README.md](../../README.md)                       | product overview, features, screenshots, setup               |
+| [docs/README.md](../../docs/README.md)             | doc map / release index                                      |
+| [docs/plans/](../../docs/plans)                    | close or revise plans that the work completed or invalidated |
+| `.cursor/rules/*.mdc`                              | conventions the agent must follow changed                    |
+| `.cursor/hooks.json` / hook scripts                | agent guardrails or format pipeline changed                  |
+
+Prefer editing existing docs over adding new ones. Prefer accurate short updates over large rewrites.
+
+## How
+
+1. After the code change is clear, ask: “Would an agent reading only AGENTS + architecture be wrong or incomplete?”
+2. If yes, patch those files (and README / plans / rules as needed) before finishing.
+3. Do not invent features or APIs in docs — document what landed.
+4. Release notes / screenshot folders under `docs/releases/` only when publishing a version (see docs/README.md).
