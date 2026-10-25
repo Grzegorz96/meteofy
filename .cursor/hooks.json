@@ -6,6 +6,14 @@
         "command": ".cursor/hooks/format.sh",
         "timeout": 20
       }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/block-git.sh",
+        "matcher": "\\bgit(?:\\.exe)?\\s",
+        "failClosed": true,
+        "timeout": 10
+      }
     ]
   }
 }

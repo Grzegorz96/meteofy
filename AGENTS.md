@@ -48,6 +48,6 @@ API Docker: `docker compose up` (port 3000, `apps/api/.env`).
 
 - Rules: `.cursor/rules/` (scoped by glob)
 - Skills: `.cursor/skills/example-skill/` — learning stub; install real skills from upstream yourself
-- Hooks: `.cursor/hooks.json` → `afterFileEdit`: `format.sh` (eslint --fix + prettier na edytowanym pliku)
+- Hooks: `.cursor/hooks.json` → `afterFileEdit`: `format.sh`; `beforeShellExecution`: `block-git.sh` (blocks agent `git add` / `commit` / `push`)
 - MCP: `.cursor/mcp.json` (empty by default)
 - Ignore: `.cursorignore`
