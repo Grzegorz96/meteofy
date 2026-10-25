@@ -1,0 +1,13 @@
+---
+description: Git branch and commit conventions for this repo
+alwaysApply: false
+---
+
+# Git
+
+- Host: **GitHub** (`origin` → `Grzegorz96/meteofy`). Default integration branch: `develop` (not GitLab/Jira).
+- Commit only when the user asks. Never `--force` on `master`/`main`, never skip hooks, never amend unless the user explicitly requests it and amend rules allow it.
+- Prefer short, imperative / past-tense English describing **why** or the user-visible fix (existing style: `fixed scrollbar`, `migration for eslint`, `added backend: logger module…`).
+- No ticket-id prefix required (no Jira keys in this project).
+- Do not commit `.env`, credentials, or large generated dumps. `package-lock.json` is tracked; do not invent lockfile churn.
+- Branches: short kebab-case from `develop` (e.g. `feat/air-pollution-chart`, `fix/search-rate-limit`).

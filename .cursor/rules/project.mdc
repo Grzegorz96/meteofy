@@ -1,30 +1,15 @@
 ---
-description: Meteofy stack, folders, and npm scripts
+description: Meteofy always-on constraints for the agent
 alwaysApply: true
 ---
 
 # Meteofy
 
-npm workspaces monorepo: `apps/web` (React 18 + Vite 5, JavaScript/JSX), `apps/api` (Express + TypeScript), `packages/shared` (shared TS compiled to JS + `.d.ts`). No Next.js or Tailwind.
+Read [AGENTS.md](../../AGENTS.md) and [docs/architecture.md](../../docs/architecture.md) when starting non-trivial work.
 
-## apps/web
-
-- `apps/web/src/main.jsx` mounts the Redux store and `App`.
-- `apps/web/src/pages` are route screens. Paths live in `apps/web/src/utils/constants/routes.js` and are registered in `apps/web/src/routes`.
-- `apps/web/src/components` holds UI. A folder contains `Name.jsx` and, when styled, `Name.styles.jsx`.
-- `apps/web/src/services/api` fetches weather and geocoding. Endpoint details live in `apps/web/src/utils/constants/api`.
-- `apps/web/src/state` is Redux Toolkit: `cityData` for the selected city, `themeData` for dark mode.
-- `apps/web/src/hooks` and `apps/web/src/utils` hold shared logic, formatters, chart config, and city lists.
-- `apps/web/src/utils/styles` holds the styled-components theme and global styles.
-- `apps/web/public/` holds static assets such as weather icons.
-
-Routing is React Router 6. Styles are styled-components with the existing light and dark theme. Maps are Leaflet (Europe), SVG (Poland), and React Three Fiber (world). Charts use Chart.js. The city popup is SweetAlert2 in `apps/web/src/components/ui/modals/WeatherModal`. HTTP uses axios.
-
-## apps/api / packages/shared
-
-- `apps/api` — Express backend in TypeScript (object-oriented).
-- `packages/shared` (`@meteofy/shared`) — shared types, schemas, constants, pure helpers. Both apps depend on it via `"@meteofy/shared": "*"`.
-
-## Scripts (from repo root)
-
-`npm run dev` (shared + api + web), `npm run dev:web`, `npm run dev:api`, `npm run build`, `npm run lint` (ESLint 9 flat config; zero warnings; web + api + shared), `npm run lint:web|api|shared`, `npm run typecheck` (api + shared), `npm run format`. Shared ESLint tooling lives in the repo root; React plugins stay in `web`. Workspace-scoped: `npm run <script> -w web|api|@meteofy/shared`.
+- Monorepo: `apps/web` (JSX), `apps/api` (TS Express), `packages/shared` (`@meteofy/shared`).
+- No Next.js, no Tailwind. Prefer existing styled-components themes and folder patterns.
+- Lint must stay at zero warnings (`--max-warnings 0`).
+- Do not add a test runner unless asked.
+- Never commit secrets or invent API keys.
+- Keep AI/product docs in sync with code changes (see `keep-docs-updated.mdc`).

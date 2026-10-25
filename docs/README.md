@@ -2,6 +2,12 @@
 
 Release notes, screenshots, and version-specific docs live here. Each version is self-contained under `releases/<version>/`.
 
+For agents and contributors:
+
+- [architecture.md](./architecture.md) — layers, data flow, directory map
+- [plans/](./plans/README.md) — larger task plans
+- [../AGENTS.md](../AGENTS.md) — Cursor/agent commands and conventions
+
 ## Releases
 
 | Version                      | Status  | Notes                                   |
