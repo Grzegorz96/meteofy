@@ -48,6 +48,6 @@ API Docker: `docker compose up` (port 3000, `apps/api/.env`).
 
 - Rules: `.cursor/rules/` (scoped by glob)
 - Skills: `.cursor/skills/example-skill/` — learning stub; install real skills from upstream yourself
-- Hooks: `.cursor/hooks.json` → `afterFileEdit`: `format.sh`; `beforeShellExecution`: `block-git.sh` (blocks agent `git add` / `commit` / `push`)
+- Hooks: `.cursor/hooks.json` → `afterFileEdit`: `format.sh`; `beforeShellExecution`: `block-git.sh` (blocks agent `git add` / `commit` / `push`), `block-env-read.sh` (blocks shell refs/globs to secret `.env*` / `.envrc`; allows `.env.example`/`.sample`/`.template`/`.dist`; matcher `\\.e` so normal commands skip the guard but `.e*` / `.en?` still hit it); `beforeReadFile` + `beforeTabFileRead`: `block-env-file-read.sh` (blocks Read/Tab of secret env files incl. multi-dot names and prompt `attachments`; same allowlist)
 - MCP: `.cursor/mcp.json` (empty by default)
 - Ignore: `.cursorignore`

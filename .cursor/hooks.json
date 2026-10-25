@@ -13,6 +13,28 @@
         "matcher": "\\bgit(?:\\.exe)?\\s",
         "failClosed": true,
         "timeout": 10
+      },
+      {
+        "command": ".cursor/hooks/block-env-read.sh",
+        "matcher": "\\.e",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "beforeReadFile": [
+      {
+        "command": ".cursor/hooks/block-env-file-read.sh",
+        "matcher": "Read",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "beforeTabFileRead": [
+      {
+        "command": ".cursor/hooks/block-env-file-read.sh",
+        "matcher": "TabRead",
+        "failClosed": true,
+        "timeout": 10
       }
     ]
   }
